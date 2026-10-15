@@ -73,6 +73,66 @@
       .match-badge{padding:7px 9px;font-size:11px}
       .match-badge strong{font-size:13px}
     }
+    .hint{padding:0;overflow:hidden}
+    .hint summary{padding:12px 13px;cursor:pointer;list-style:none}
+    .hint summary::-webkit-details-marker{display:none}
+    .hint summary:after{content:'＋';float:right;font-weight:900}
+    .hint[open] summary:after{content:'−'}
+    .hint-copy{padding:0 13px 12px}
+    @media(max-width:1024px){
+      html,body{height:100%;overflow:hidden}
+      .page{width:100%;height:100vh;height:100dvh;min-height:0;grid-template-rows:auto auto minmax(0,1fr);gap:6px;overflow:hidden;padding:8px 10px}
+      header{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:5px;padding-top:27px}
+      .brand{display:grid;grid-template-columns:38px minmax(0,1fr);gap:0 8px;align-items:center;min-width:0}
+      .brand .home-link{position:absolute;left:0;top:0;padding:4px 9px;font-size:11px;border-radius:10px;box-shadow:0 2px 0 #e5e5d5}
+      .brand-mark{grid-row:1;width:36px;height:36px;font-size:21px;border-radius:12px}
+      .eyebrow{display:none}
+      .brand h1{font-size:clamp(17px,3.2vw,23px);line-height:1.05;margin:0;overflow-wrap:anywhere}
+      .head-actions{gap:5px}
+      .counter{padding:7px 8px;font-size:11px}
+      .counter strong{font-size:14px}
+      .reset{padding:8px 9px;font-size:12px}
+      .intro{min-height:0;align-items:center;justify-content:flex-end;gap:0}
+      .intro p,.intro .tip{display:none}
+      .game{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) minmax(180px,36dvh);gap:8px}
+      .scene-card{padding:5px;border-radius:17px}
+      .scene-wrap{height:100%;max-height:100%;max-width:100%;border-radius:13px}
+      .tray-card{display:grid;grid-template-rows:auto auto auto minmax(0,1fr) auto;gap:3px;padding:8px 10px;min-height:0;border-radius:17px;overflow:hidden}
+      .tray-head{margin:0}
+      .tray-head h2{font-size:15px}
+      .tray-head span{font-size:10px}
+      .tray-sub{margin:0;font-size:10px}
+      .progress{height:5px;margin:1px 0 3px}
+      .tray{grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;max-height:none;min-height:0;overflow-y:auto;overflow-x:hidden;padding:2px 3px 5px 0;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:none}
+      .sticker{min-width:0;border-radius:10px;touch-action:none}
+      .hint{margin:0;border-radius:10px;font-size:10px;line-height:1.35}
+      .hint summary{padding:6px 9px}
+      .hint-copy{padding:0 9px 7px}
+      .game.complete{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:minmax(0,1fr)}
+      .game.complete .scene-card,.game.complete .reference-card{padding:5px;border-radius:13px}
+      .game.complete .compare-label{font-size:9px;letter-spacing:0}
+      .game.complete .compare-label strong{font-size:10px}
+      .match-badge{padding:5px 8px;font-size:10px}
+      .match-badge strong{font-size:12px}
+    }
+    @media(max-width:520px){
+      .page{padding:6px 7px}
+      .brand{grid-template-columns:34px minmax(0,1fr);gap:0 6px}
+      .brand-mark{width:32px;height:32px;font-size:19px}
+      .brand h1{font-size:clamp(16px,4.4vw,20px)}
+      .head-actions{gap:4px}
+      .counter{padding:6px;font-size:10px}
+      .reset{padding:7px 8px;font-size:11px}
+      .game{grid-template-rows:minmax(0,1fr) minmax(190px,40dvh)}
+      .tray-card{padding:7px 8px;gap:2px}
+      .tray{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+      .sticker{border-radius:9px}
+    }
+    @media(max-height:600px) and (max-width:1024px){
+      .game{grid-template-rows:minmax(0,1fr) minmax(145px,34dvh)}
+      .tray-card{grid-template-rows:auto auto minmax(0,1fr) auto}
+      .tray-sub{display:none}
+    }
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
   </style>
 </head>
@@ -86,7 +146,7 @@
     <section class="game" aria-label="Игра собери румбокс">
       <div class="reference-card"><div class="compare-label" style="display:flex"><span>Оригинал</span><strong>Illustrator</strong></div><img class="reference-image" src="assets/illustrator-reference.png" alt="Готовый румбокс из Illustrator"></div>
       <div class="scene-card"><div class="compare-label"><span>Твоя сборка</span><strong id="compare-score">0% совпадение</strong></div><div class="scene-wrap" id="scene" aria-label="Поле для сборки румбокса"></div></div>
-      <aside class="tray-card"><div class="tray-head"><h2>Наклейки</h2><span id="left">52 осталось</span></div><p class="tray-sub">Выбери деталь и найди ей место</p><div class="progress"><i id="progress"></i></div><div class="tray" id="tray"></div><div class="hint"><b>Как играть</b><br>Перетащи наклейку на силуэт подсказки. Если разместить правильно — она приклеится к сцене!</div></aside>
+      <aside class="tray-card"><div class="tray-head"><h2>Наклейки</h2><span id="left">52 осталось</span></div><p class="tray-sub">Выбери деталь и найди ей место</p><div class="progress"><i id="progress"></i></div><div class="tray" id="tray"></div><details class="hint" open><summary><b>Как играть</b></summary><div class="hint-copy">Перетащи наклейку на силуэт подсказки. Если разместить правильно — она приклеится к сцене!</div></details></aside>
     </section>
   </main>
   <div class="toast" id="toast"></div>
@@ -151,7 +211,8 @@
   };
   const scene=document.querySelector('#scene'),game=document.querySelector('.game'),tray=document.querySelector('#tray'),countEl=document.querySelector('#count'),totalEl=document.querySelector('#total'),leftEl=document.querySelector('#left'),progress=document.querySelector('#progress'),toast=document.querySelector('#toast'),win=document.querySelector('#win'),introText=document.querySelector('#intro-text'),tip=document.querySelector('#tip'),matchBadge=document.querySelector('#match-badge'),matchPercent=document.querySelector('#match-percent'),compareScore=document.querySelector('#compare-score');
   const introDefault='Создай свой доисторический мир — перетаскивай наклейки на румбокс.';
-  const placed=new Set(); let drag=null,toastTimer,winShown=false;
+  const placed=new Set(); let drag=null,toastTimer,winShown=false,touchGesture=null;
+  const mobileLayout=window.matchMedia('(max-width: 1024px)');
   const src=n=>`assets/stickers/${n}.png`;
   names.forEach((name,i)=>{const item=document.createElement('button');item.className='sticker';item.type='button';item.setAttribute('aria-label',`Наклейка ${name.replaceAll('_',' ')}`);item.dataset.name=name;item.innerHTML=`<img src="${src(name)}" alt="" draggable="false">`;tray.append(item)});
   totalEl.textContent=names.length;leftEl.textContent=`${names.length} осталось`;
@@ -163,10 +224,26 @@
   function begin(ev){const item=ev.target.closest('.sticker');if(!item||item.classList.contains('used'))return;ev.preventDefault();const name=item.dataset.name;const ghost=document.createElement('img');ghost.className='drag-ghost';ghost.src=src(name);const r=item.getBoundingClientRect();ghost.style.width=`${Math.min(170,Math.max(64,r.width*1.5))}px`;ghost.style.height=ghost.style.width;document.body.append(ghost);const [x,y,w]=spots[name],targetHint=document.createElement('img');targetHint.className='target-ghost';targetHint.src=src(name);targetHint.style.left=`${x*100}%`;targetHint.style.top=`${y*100}%`;targetHint.style.width=`${w*100}%`;targetHint.style.transform='translate(-50%,-50%)';targetHint.style.zIndex='100';scene.append(targetHint);drag={name,item,ghost,targetHint,pointerId:ev.pointerId};item.classList.add('dragging');move(ev);window.addEventListener('pointermove',move);window.addEventListener('pointerup',end,{once:true});window.addEventListener('pointercancel',end,{once:true})}
   function move(ev){if(!drag)return;drag.ghost.style.left=`${ev.clientX}px`;drag.ghost.style.top=`${ev.clientY}px`;const r=scene.getBoundingClientRect();scene.classList.toggle('drag-ready',ev.clientX>=r.left&&ev.clientX<=r.right&&ev.clientY>=r.top&&ev.clientY<=r.bottom)}
   function end(ev){if(!drag)return;const d=drag;drag=null;window.removeEventListener('pointermove',move);d.item.classList.remove('dragging');d.ghost.remove();d.targetHint.remove();scene.classList.remove('drag-ready');const r=scene.getBoundingClientRect(),inside=ev.clientX>=r.left&&ev.clientX<=r.right&&ev.clientY>=r.top&&ev.clientY<=r.bottom;if(inside){const p=point(ev),t=target(d.name);const dx=(p.x-t.x)*r.width,dy=(p.y-t.y)*r.height;if(Math.hypot(dx,dy)<Math.max(12,r.width*.022)){placed.add(d.name);d.item.classList.add('used');renderPlaced(d.name,true);update();return}showToast('Ищи силуэт подсказки ✨')} }
-  tray.addEventListener('pointerdown',begin);document.querySelector('#reset').addEventListener('click',reset);document.querySelector('#play-again').addEventListener('click',reset);document.querySelector('#continue-play').addEventListener('click',()=>win.classList.remove('open'));win.addEventListener('click',e=>{if(e.target===win)win.classList.remove('open')});
+  function clearTouchGesture(ev){if(touchGesture&&touchGesture.pointerId===ev.pointerId){clearTimeout(touchGesture.timer);touchGesture=null}}
+  function handleTrayPointerDown(ev){
+    if(!mobileLayout.matches||ev.pointerType!=='touch'){begin(ev);return}
+    const item=ev.target.closest('.sticker');if(!item||item.classList.contains('used'))return;
+    ev.preventDefault();
+    const start={target:ev.target,pointerId:ev.pointerId,clientX:ev.clientX,clientY:ev.clientY,preventDefault(){}};
+    touchGesture={pointerId:ev.pointerId,lastY:ev.clientY,startY:ev.clientY,mode:'pending',timer:setTimeout(()=>{if(touchGesture?.mode==='pending'){touchGesture.mode='drag';begin(start)}},180)};
+  }
+  function handleTrayPointerMove(ev){
+    if(!touchGesture||touchGesture.pointerId!==ev.pointerId||touchGesture.mode==='drag')return;
+    if(touchGesture.mode==='pending'&&Math.abs(ev.clientY-touchGesture.startY)>7){clearTimeout(touchGesture.timer);touchGesture.mode='scroll'}
+    if(touchGesture.mode==='scroll'){tray.scrollTop-=ev.clientY-touchGesture.lastY;touchGesture.lastY=ev.clientY}
+  }
+  tray.addEventListener('pointerdown',handleTrayPointerDown);tray.addEventListener('pointermove',handleTrayPointerMove);window.addEventListener('pointerup',clearTouchGesture);window.addEventListener('pointercancel',clearTouchGesture);document.querySelector('#reset').addEventListener('click',reset);document.querySelector('#play-again').addEventListener('click',reset);document.querySelector('#continue-play').addEventListener('click',()=>win.classList.remove('open'));win.addEventListener('click',e=>{if(e.target===win)win.classList.remove('open')});
   function reset(){placed.clear();scene.querySelectorAll('.placed').forEach(e=>e.remove());tray.querySelectorAll('.used').forEach(e=>e.classList.remove('used'));win.classList.remove('open');winShown=false;update()}
   // Soft target silhouettes become visible only while a sticker is being dragged over the board.
   scene.addEventListener('pointerenter',()=>{if(drag)scene.classList.add('drag-ready')});
+  const hintDetails=document.querySelector('.hint');
+  const syncHint=()=>{hintDetails.open=!mobileLayout.matches};
+  syncHint();mobileLayout.addEventListener('change',syncHint);
   update();
 })();
 </script>
