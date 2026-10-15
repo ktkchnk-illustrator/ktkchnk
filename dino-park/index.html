@@ -81,23 +81,25 @@
     .hint-copy{padding:0 13px 12px}
     @media(max-width:1024px){
       html,body{height:100%;overflow:hidden}
-      .page{width:100%;height:100vh;height:100dvh;min-height:0;grid-template-rows:auto auto minmax(0,1fr);gap:6px;overflow:hidden;padding:8px 10px}
-      header{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:5px;padding-top:27px}
+      .page,.page *{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+      .sticker,.sticker img,.scene-wrap,.scene-wrap img{-webkit-user-drag:none;user-select:none}
+      .page{width:100%;height:100vh;height:100dvh;min-height:0;grid-template-rows:auto auto minmax(0,1fr);gap:4px;overflow:hidden;padding:5px 8px}
+      header{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:4px;padding-top:18px}
       .brand{display:grid;grid-template-columns:38px minmax(0,1fr);gap:0 8px;align-items:center;min-width:0}
-      .brand .home-link{position:absolute;left:0;top:0;padding:4px 9px;font-size:11px;border-radius:10px;box-shadow:0 2px 0 #e5e5d5}
-      .brand-mark{grid-row:1;width:36px;height:36px;font-size:21px;border-radius:12px}
+      .brand .home-link{position:absolute;left:0;top:0;padding:2px 7px;font-size:10px;border-radius:9px;box-shadow:0 2px 0 #e5e5d5}
+      .brand-mark{grid-row:1;width:30px;height:30px;font-size:18px;border-radius:10px}
       .eyebrow{display:none}
-      .brand h1{font-size:clamp(17px,3.2vw,23px);line-height:1.05;margin:0;overflow-wrap:anywhere}
-      .head-actions{gap:5px}
-      .counter{padding:7px 8px;font-size:11px}
-      .counter strong{font-size:14px}
-      .reset{padding:8px 9px;font-size:12px}
+      .brand h1{font-size:clamp(16px,3.2vw,21px);line-height:1.05;margin:0;overflow-wrap:anywhere}
+      .head-actions{gap:4px}
+      .counter{padding:5px 6px;font-size:10px}
+      .counter strong{font-size:13px}
+      .reset{padding:6px 7px;font-size:11px}
       .intro{min-height:0;align-items:center;justify-content:flex-end;gap:0}
       .intro p,.intro .tip{display:none}
       .game{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) minmax(180px,36dvh);gap:8px}
       .scene-card{padding:5px;border-radius:17px}
       .scene-wrap{height:100%;max-height:100%;max-width:100%;border-radius:13px}
-      .tray-card{display:grid;grid-template-rows:auto auto auto minmax(0,1fr) auto;gap:3px;padding:8px 10px;min-height:0;border-radius:17px;overflow:hidden}
+      .tray-card{display:grid;grid-template-rows:auto auto auto minmax(0,1fr);gap:3px;padding:8px 10px;min-height:0;border-radius:17px;overflow:hidden}
       .tray-head{margin:0}
       .tray-head h2{font-size:15px}
       .tray-head span{font-size:10px}
@@ -105,9 +107,7 @@
       .progress{height:5px;margin:1px 0 3px}
       .tray{grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;max-height:none;min-height:0;overflow-y:auto;overflow-x:hidden;padding:2px 3px 5px 0;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:none}
       .sticker{min-width:0;border-radius:10px;touch-action:none}
-      .hint{margin:0;border-radius:10px;font-size:10px;line-height:1.35}
-      .hint summary{padding:6px 9px}
-      .hint-copy{padding:0 9px 7px}
+      .hint{display:none}
       .game.complete{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:minmax(0,1fr)}
       .game.complete .scene-card,.game.complete .reference-card{padding:5px;border-radius:13px}
       .game.complete .compare-label{font-size:9px;letter-spacing:0}
@@ -116,13 +116,15 @@
       .match-badge strong{font-size:12px}
     }
     @media(max-width:520px){
-      .page{padding:6px 7px}
+      .page{padding:4px 7px}
       .brand{grid-template-columns:34px minmax(0,1fr);gap:0 6px}
-      .brand-mark{width:32px;height:32px;font-size:19px}
+      .brand-mark{width:28px;height:28px;font-size:17px}
       .brand h1{font-size:clamp(16px,4.4vw,20px)}
-      .head-actions{gap:4px}
-      .counter{padding:6px;font-size:10px}
-      .reset{padding:7px 8px;font-size:11px}
+      .head-actions{gap:3px}
+      .counter{padding:4px 5px;font-size:9px}
+      .counter strong{font-size:12px}
+      .reset{width:27px;height:27px;padding:0;display:grid;place-items:center;font-size:0}
+      .reset:before{content:'↻';font-size:16px}
       .game{grid-template-rows:minmax(0,1fr) minmax(190px,40dvh)}
       .tray-card{padding:7px 8px;gap:2px}
       .tray{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
@@ -140,7 +142,7 @@
   <main class="page">
     <header>
       <div class="brand"><a class="home-link" href="../index.html">← На главную</a><div class="brand-mark">🦕</div><div><div class="eyebrow">Творческая мастерская</div><h1>Собери Дино-парк</h1></div></div>
-      <div class="head-actions"><div class="counter"><strong id="count">0</strong> / <span id="total">52</span> наклеек</div><button class="reset" id="reset">↻ Начать заново</button></div>
+      <div class="head-actions"><div class="counter"><strong id="count">0</strong> / <span id="total">52</span> наклеек</div><button class="reset" id="reset" aria-label="Начать заново">↻ Начать заново</button></div>
     </header>
     <section class="intro"><p id="intro-text">Создай свой доисторический мир — перетаскивай наклейки на румбокс.</p><div class="tip" id="tip">✦ Подсказка: поднеси наклейку к пунктиру</div><div class="match-badge" id="match-badge">Совпадение: <strong id="match-percent">0%</strong></div></section>
     <section class="game" aria-label="Игра собери румбокс">
@@ -223,7 +225,7 @@
   function update(){let n=placed.size;countEl.textContent=n;leftEl.textContent=`${names.length-n} осталось`;progress.style.width=`${100*n/names.length}%`;const percent=Math.round(n/names.length*100);matchPercent.textContent=`${percent}%`;compareScore.textContent=`${percent}% совпадение`;const complete=n===names.length;game.classList.toggle('complete',complete);matchBadge.classList.toggle('active',complete);tip.style.display=complete?'none':'';introText.textContent=complete?'Сравни оба румбокса — все наклейки стоят на своих местах.':introDefault;if(n>=Math.ceil(names.length*.9)&&!winShown){winShown=true;win.classList.add('open')}}
   function begin(ev){const item=ev.target.closest('.sticker');if(!item||item.classList.contains('used'))return;ev.preventDefault();const name=item.dataset.name;const ghost=document.createElement('img');ghost.className='drag-ghost';ghost.src=src(name);const r=item.getBoundingClientRect();ghost.style.width=`${Math.min(170,Math.max(64,r.width*1.5))}px`;ghost.style.height=ghost.style.width;document.body.append(ghost);const [x,y,w]=spots[name],targetHint=document.createElement('img');targetHint.className='target-ghost';targetHint.src=src(name);targetHint.style.left=`${x*100}%`;targetHint.style.top=`${y*100}%`;targetHint.style.width=`${w*100}%`;targetHint.style.transform='translate(-50%,-50%)';targetHint.style.zIndex='100';scene.append(targetHint);drag={name,item,ghost,targetHint,pointerId:ev.pointerId};item.classList.add('dragging');move(ev);window.addEventListener('pointermove',move);window.addEventListener('pointerup',end,{once:true});window.addEventListener('pointercancel',end,{once:true})}
   function move(ev){if(!drag)return;drag.ghost.style.left=`${ev.clientX}px`;drag.ghost.style.top=`${ev.clientY}px`;const r=scene.getBoundingClientRect();scene.classList.toggle('drag-ready',ev.clientX>=r.left&&ev.clientX<=r.right&&ev.clientY>=r.top&&ev.clientY<=r.bottom)}
-  function end(ev){if(!drag)return;const d=drag;drag=null;window.removeEventListener('pointermove',move);d.item.classList.remove('dragging');d.ghost.remove();d.targetHint.remove();scene.classList.remove('drag-ready');const r=scene.getBoundingClientRect(),inside=ev.clientX>=r.left&&ev.clientX<=r.right&&ev.clientY>=r.top&&ev.clientY<=r.bottom;if(inside){const p=point(ev),t=target(d.name);const dx=(p.x-t.x)*r.width,dy=(p.y-t.y)*r.height;if(Math.hypot(dx,dy)<Math.max(12,r.width*.022)){placed.add(d.name);d.item.classList.add('used');renderPlaced(d.name,true);update();return}showToast('Ищи силуэт подсказки ✨')} }
+  function end(ev){if(!drag)return;const d=drag;drag=null;window.removeEventListener('pointermove',move);d.item.classList.remove('dragging');d.ghost.remove();d.targetHint.remove();scene.classList.remove('drag-ready');const r=scene.getBoundingClientRect(),inside=ev.clientX>=r.left&&ev.clientX<=r.right&&ev.clientY>=r.top&&ev.clientY<=r.bottom;if(inside){const p=point(ev),t=target(d.name);const dx=(p.x-t.x)*r.width,dy=(p.y-t.y)*r.height,stickRadius=Math.max(12,r.width*.022)*1.15,targetRadius=t.w*r.width*.9;if(Math.hypot(dx,dy)<Math.max(stickRadius,targetRadius)){placed.add(d.name);d.item.classList.add('used');renderPlaced(d.name,true);update();return}showToast('Ищи силуэт подсказки ✨')} }
   function clearTouchGesture(ev){if(touchGesture&&touchGesture.pointerId===ev.pointerId){clearTimeout(touchGesture.timer);touchGesture=null}}
   function handleTrayPointerDown(ev){
     if(!mobileLayout.matches||ev.pointerType!=='touch'){begin(ev);return}
