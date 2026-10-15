@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f5f3e8">
+  <link rel="icon" type="image/png" href="logo-katerina.png">
+  <title>Катерина Ткаченко — Иллюстратор</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&display=swap');
+    :root{font-family:Nunito,'Trebuchet MS',sans-serif;color:#263c32;background:#f5f3e8;font-synthesis:none}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 0,#fffdf2 0,#f5f3e8 65%,#edeedc 100%)}
+    main{width:min(980px,100%);margin:auto;padding:clamp(24px,7vw,76px) clamp(18px,5vw,48px)}
+    .identity{display:flex;align-items:center;gap:clamp(16px,4vw,34px);padding-bottom:40px;border-bottom:1px solid #dfe4d2}
+    .logo{width:clamp(100px,20vw,172px);aspect-ratio:1;flex:none;display:block;object-fit:contain;border-radius:50%;filter:drop-shadow(0 7px 0 #b1d55b)}
+    h1{font-size:clamp(28px,6vw,54px);line-height:1.05;letter-spacing:-.055em;margin:0;font-weight:900}.role{margin:10px 0 0;color:#718073;font-weight:800;font-size:clamp(16px,3vw,22px)}
+    section{padding-top:34px}h2{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#738477;margin:0 0 16px;font-weight:900}
+    .game{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:100px;padding:20px 24px;border:1px solid #e6e7d9;border-radius:22px;background:#fffdf6;box-shadow:0 5px 0 #e5e5d5;color:inherit;text-decoration:none;transition:transform .18s,box-shadow .18s}
+    .game:hover{transform:translateY(-3px);box-shadow:0 9px 16px #28391816}.game-name{font-size:clamp(20px,4vw,28px);font-weight:900;letter-spacing:-.04em}.game-desc{margin-top:4px;color:#7c8878;font-size:14px;font-weight:700}.arrow{width:42px;height:42px;flex:none;border-radius:14px;background:#d9f389;color:#347b49;display:grid;place-items:center;font-size:23px;font-weight:900}
+    .socials{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.social{min-height:78px;display:flex;align-items:center;gap:12px;padding:14px 16px;border:1px solid #e6e7d9;border-radius:18px;background:#fffdf6;color:#385440;text-decoration:none;font-weight:900;box-shadow:0 4px 0 #e5e5d5;transition:transform .18s}.social:hover{transform:translateY(-3px)}.social-mark{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:#edf5d9;color:#347b49;font-size:16px}
+    @media(max-width:560px){.identity{align-items:flex-start}.logo{border-radius:28%}.socials{grid-template-columns:1fr}.social{min-height:64px}}
+  </style>
+</head>
+<body>
+  <main>
+    <header class="identity">
+      <img class="logo" src="logo-katerina.png" alt="Иллюстрация-логотип Катерины Ткаченко">
+      <div><h1>Катерина Ткаченко</h1><p class="role">Иллюстратор</p></div>
+    </header>
+    <section aria-labelledby="games-title">
+      <h2 id="games-title">Доступные игры</h2>
+      <a class="game" href="dino-park/index.html">
+        <span><span class="game-name">🦕 Дино-парк</span><span class="game-desc" style="display:block">Собери свой румбокс</span></span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </section>
+    <section aria-labelledby="social-title">
+      <h2 id="social-title">Я в сети</h2>
+      <nav class="socials" aria-label="Социальные сети">
+        <a class="social" href="https://www.behance.net/ktkchnk/" target="_blank" rel="noopener noreferrer"><span class="social-mark">Bē</span>Behance</a>
+        <a class="social" href="https://vk.ru/ktkchnk" target="_blank" rel="noopener noreferrer"><span class="social-mark">ВК</span>ВКонтакте</a>
+        <a class="social" href="https://t.me/Uglyelsa" target="_blank" rel="noopener noreferrer"><span class="social-mark">➤</span>Telegram</a>
+      </nav>
+    </section>
+  </main>
+</body>
+</html>
+
