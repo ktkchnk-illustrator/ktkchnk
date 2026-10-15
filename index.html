@@ -16,9 +16,9 @@
     h1{font-size:clamp(28px,6vw,54px);line-height:1.05;letter-spacing:-.055em;margin:0;font-weight:900}.role{margin:10px 0 0;color:#718073;font-weight:800;font-size:clamp(16px,3vw,22px)}
     section{padding-top:34px}h2{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#738477;margin:0 0 16px;font-weight:900}
     .game{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:100px;padding:20px 24px;border:1px solid #e6e7d9;border-radius:22px;background:#fffdf6;box-shadow:0 5px 0 #e5e5d5;color:inherit;text-decoration:none;transition:transform .18s,box-shadow .18s}
-    .game:hover{transform:translateY(-3px);box-shadow:0 9px 16px #28391816}.game-name{font-size:clamp(20px,4vw,28px);font-weight:900;letter-spacing:-.04em}.game-desc{margin-top:4px;color:#7c8878;font-size:14px;font-weight:700}.arrow{width:42px;height:42px;flex:none;border-radius:14px;background:#d9f389;color:#347b49;display:grid;place-items:center;font-size:23px;font-weight:900}
+    .game+.game{margin-top:14px}.game:hover{transform:translateY(-3px);box-shadow:0 9px 16px #28391816}.game-name{font-size:clamp(20px,4vw,28px);font-weight:900;letter-spacing:-.04em}.game-desc{margin-top:4px;color:#7c8878;font-size:14px;font-weight:700}.arrow{width:42px;height:42px;flex:none;border-radius:14px;background:#d9f389;color:#347b49;display:grid;place-items:center;font-size:23px;font-weight:900}
     .socials{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.social{min-height:78px;display:flex;align-items:center;gap:12px;padding:14px 16px;border:1px solid #e6e7d9;border-radius:18px;background:#fffdf6;color:#385440;text-decoration:none;font-weight:900;box-shadow:0 4px 0 #e5e5d5;transition:transform .18s}.social:hover{transform:translateY(-3px)}.social-mark{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:#edf5d9;color:#347b49;font-size:16px}
-    @media(max-width:560px){.identity{align-items:flex-start}.logo{border-radius:28%}.socials{grid-template-columns:1fr}.social{min-height:64px}}
+    @media(max-width:560px){.identity{align-items:flex-start}.logo{border-radius:28%}.game{min-height:84px;padding:16px;border-radius:18px}.game-desc{font-size:13px}.socials{grid-template-columns:1fr}.social{min-height:64px}}
   </style>
 </head>
 <body>
@@ -33,6 +33,10 @@
         <span><span class="game-name">🦕 Дино-парк</span><span class="game-desc" style="display:block">Собери свой румбокс</span></span>
         <span class="arrow" aria-hidden="true">→</span>
       </a>
+      <a class="game" href="office-run/">
+        <span><span class="game-name">🏃 Офисный забег</span><span class="game-desc" style="display:block">Собирай телефоны, перепрыгивай препятствия</span></span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
     </section>
     <section aria-labelledby="social-title">
       <h2 id="social-title">Я в сети</h2>
@@ -45,4 +49,3 @@
   </main>
 </body>
 </html>
-
